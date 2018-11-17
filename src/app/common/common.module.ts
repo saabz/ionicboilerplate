@@ -13,6 +13,7 @@ import { HomePage } from './pages/home/home';
 
 //feature modules
 import { AccountModule } from '../account/account.module';
+import { InterceptorModule } from './interceptor.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { AccountModule } from '../account/account.module';
   imports: [
     BrowserModule,
     AccountModule,
-    IonicPageModule.forChild([TabsPage])
+    IonicModule,
+    IonicPageModule.forChild([TabsPage]),
+    InterceptorModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

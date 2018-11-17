@@ -14,4 +14,8 @@ export class AccountServiceProvider {
     console.log('Hello AccountServiceProvider Provider');
   }
 
+  getAccountDetails(){
+    
+  }
+
 }
