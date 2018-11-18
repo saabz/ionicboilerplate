@@ -8,9 +8,15 @@ import { catchError, mergeMap } from 'rxjs/operators';
 
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse} from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastServiceProvider } from './providers/toast-service/toast-service';
 
 @Injectable()
 export class RestInterceptor implements HttpInterceptor {
+    
+    constructor(private toastService: ToastServiceProvider){
+    
+    }
+
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         console.log("Intercepted");
         // const updatedReq = req.clone({ headers: req.headers.set('Auth', 'some sample key') });
@@ -28,6 +34,7 @@ export class RestInterceptor implements HttpInterceptor {
                             break;
                         case 404:
                             console.log('404 Handled');
+                            this.toastService.show('404 Error');
                             break;
                         case 500:
                             break;

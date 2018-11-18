@@ -9,6 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CommonModule } from './common/common.module';
 import { AccountModule } from './account/account.module';
 
+
 //pages
 
 @NgModule({
@@ -27,7 +28,7 @@ import { AccountModule } from './account/account.module';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: ErrorHandler, useClass: IonicErrorHandler},    
   ]
 })
 export class AppModule {}

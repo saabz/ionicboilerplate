@@ -15,7 +15,7 @@ export class MyAccountPage {
   invokeService(){
     console.log("Service Invoked");
 
-    this.http.get("https://jsonplaceholder.typicode.com/users").subscribe(
+    this.http.get("https://jsonplaceholder.typicode.com/users12").subscribe(
       success => {
         console.log("Successfully Completed");
         console.log(success);
