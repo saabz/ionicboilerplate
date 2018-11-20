@@ -5,6 +5,9 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
+import { MomentModule } from 'angular2-moment'; // optional, provides moment-style pipes for date formatting
+
 //feature modules
 import { CommonModule } from './common/common.module';
 import { AccountModule } from './account/account.module';
@@ -19,7 +22,9 @@ import { AccountModule } from './account/account.module';
   imports: [
     BrowserModule,
     CommonModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    MomentModule,
+    NgIdleKeepaliveModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
