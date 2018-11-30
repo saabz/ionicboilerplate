@@ -1,7 +1,7 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule,  } from '@angular/core'; // ErrorHandler
 import { IonicPageModule } from 'ionic-angular';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http'; 
 //pages
 import { MyAccountPage } from './pages/my-account/my-account';

@@ -30,7 +30,7 @@ export class LoaderServiceProvider {
     this.loader = this.loadingCtrl.create({
       spinner: this.spinnerType,
       content: this.loadingContent,
-      //duration: this.spinnerDuration = 3000
+      duration: this.spinnerDuration
     });
 
     this.loader.present();

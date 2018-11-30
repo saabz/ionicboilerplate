@@ -4,7 +4,7 @@ import 'rxjs/add/observable/throw'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
-import { catchError, mergeMap } from 'rxjs/operators';
+// import { catchError, mergeMap } from 'rxjs/operators';
 
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse} from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
