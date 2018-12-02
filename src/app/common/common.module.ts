@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'; // , ErrorHandler
 import { IonicPageModule } from 'ionic-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule } from 'ionic-angular'; // , IonicErrorHandler
-
+import { IonicStorageModule } from '@ionic/storage';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
 import { MomentModule } from 'angular2-moment'; // optional, provides moment-style pipes for date formatting
 
@@ -11,6 +11,7 @@ import { RestInterceptorProvider } from './providers/rest-interceptor/rest-inter
 import { ToastServiceProvider } from './providers/toast-service/toast-service';
 import { LoaderServiceProvider } from './providers/loader-service/loader-service';
 import { IdleTimerProvider } from './providers/idle-timer/idle-timer';
+import { ConfigProvider } from './providers/config/config';
 
 //pages
 import { TabsPage } from './pages/tabs/tabs';
@@ -34,6 +35,7 @@ import { InterceptorModule } from './interceptor.module';
     IonicPageModule.forChild([TabsPage]),
     InterceptorModule,
     MomentModule,
+    IonicStorageModule.forRoot(),
     NgIdleKeepaliveModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -47,6 +49,7 @@ import { InterceptorModule } from './interceptor.module';
     ToastServiceProvider,
     LoaderServiceProvider,
     IdleTimerProvider, 
+    ConfigProvider
   ],
   exports:[ 
       TabsPage

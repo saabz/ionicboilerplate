@@ -4,10 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../app/common/pages/tabs/tabs';
+import { LoginPage } from '../app/auth/pages/login/login';
 // import { TimeoutPage } from '../pages/timeout/timeout';
 
 // providers
 import { IdleTimerProvider } from './common/providers/idle-timer/idle-timer';
+import { AuthProvider } from './auth/providers/auth/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +23,8 @@ export class MyApp {
   constructor(platform: Platform, 
               statusBar: StatusBar, 
               splashScreen: SplashScreen,
-              private idleTimer:IdleTimerProvider              
+              private idleTimer:IdleTimerProvider,
+              private authService:AuthProvider              
              ) {
 
     this.initializeApp();
@@ -37,6 +40,12 @@ export class MyApp {
   }
 
   initializeApp(){
+    if( !this.authService.isAuthenticated() ){
+      //
+      this.rootPage = LoginPage;
+    }else{
+      this.rootPage = TabsPage;
+    }
     this.idleTimer.monitorIdle();
   }
 

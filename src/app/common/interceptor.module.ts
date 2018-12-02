@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 // import { catchError, mergeMap } from 'rxjs/operators';
 
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse} from '@angular/common/http';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //providers
@@ -25,6 +25,13 @@ export class RestInterceptor implements HttpInterceptor {
         // const updatedReq = req.clone({ headers: req.headers.set('Auth', 'some sample key') });
         // return next.handle(dupReq);
         this.loaderService.show();
+
+        if( req.url.endsWith("user/authenticate") === true ){
+            console.log("intercepted");
+            //return new HttpResponse(responseBody);
+        }
+
+
         return next.handle(req).do((event: HttpEvent<any>) => {
             if(event.type == 4){
                 this.loaderService.hide();

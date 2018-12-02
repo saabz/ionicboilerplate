@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { App, NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+
+// pages
+import { LoginPage } from '../../../auth/pages/login/login';
+
+// providers
+import { AuthProvider } from '../../../auth/providers/auth/auth';
 
 @Component({
   selector: 'page-about',
@@ -8,7 +14,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MyAccountPage {
 
-  constructor(public navCtrl: NavController , public http: HttpClient) {
+  constructor(
+    public navCtrl: NavController , 
+    public http: HttpClient,
+    private app: App,
+    private auth: AuthProvider
+  ) {
 
   }
 
@@ -22,4 +33,11 @@ export class MyAccountPage {
       }
     );
   }
+
+  logoutUser(){
+    // this.navCtrl.setRoot(LoginPage);
+    this.auth.logoutUser();
+    this.app.getRootNav().push(LoginPage);
+  }
+
 }
